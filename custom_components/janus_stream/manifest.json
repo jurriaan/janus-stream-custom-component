@@ -1,0 +1,17 @@
+{
+  "domain": "janus_stream",
+  "name": "Janus WebRTC Streaming",
+  "version": "0.1.0",
+  "config_flow": false,
+  "documentation": "https://www.home-assistant.io/integrations/janus_stream",
+  "requirements": ["aiohttp[speedups]==3.7.4.post0"],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": ["http"],
+  "after_dependencies": ["camera"],
+  "iot_class": "local_polling",
+  "codeowners": [
+    "@jurriaan"
+  ]
+}
