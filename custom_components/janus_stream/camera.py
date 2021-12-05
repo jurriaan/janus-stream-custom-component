@@ -19,7 +19,7 @@ class JanusCamera(Camera):
         self._stream_id = stream["id"]
         self._unique_id = f"janus-{config['name']}-{self.stream_id}"
         self.server = config["server"]
-        self.is_streaming = stream["enabled"]
+        self._attr_is_streaming = stream["enabled"]
 
     async def async_camera_image(self):
         """Return a faked still image response."""
@@ -47,7 +47,7 @@ class JanusCamera(Camera):
     @property
     def is_on(self):
         """Whether camera is on (streaming)."""
-        return self.is_streaming
+        return self._attr_is_streaming
 
     @property
     def extra_state_attributes(self):
