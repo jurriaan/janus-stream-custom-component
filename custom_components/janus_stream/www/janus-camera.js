@@ -133,8 +133,14 @@ class JanusCard extends HTMLElement {
   }
 }
 
+const dependencies = Janus.useDefaultDependencies();
+if(dependencies.webRTCAdapter.browserDetails.version == null) {
+   // Force browser version to highest version checked in Janus to work around missing browser version in home-assistant
+   dependencies.webRTCAdapter.browserDetails.version = 605;
+}
+
 Janus.init({
-  dependencies: Janus.useDefaultDependencies(),
+  dependencies: dependencies,
   callback: function () {
     customElements.define("janus-camera", JanusCard);
   },
